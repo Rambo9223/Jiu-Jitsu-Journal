@@ -1,0 +1,18 @@
+.tags-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .form-errors{
+    color: rgb(195, 1, 1);
+    font-size: 15px;
+}
+}
+
+@media only screen and (min-width: 600px) {}
+
+@media only screen and (min-width: 992px) {}
