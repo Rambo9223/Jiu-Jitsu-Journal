@@ -13,7 +13,7 @@ import PageEight from "./new-log-form/PageEight";
 import ContinueNewLog from "../buttons/ContinueNewLog";
 import handlePageChange from "../utils/handlePageChange";
 import { Link } from "react-router";
-import "./NewLogForm.css"
+//import "./NewLogForm.css"
 
 
 type Props = {

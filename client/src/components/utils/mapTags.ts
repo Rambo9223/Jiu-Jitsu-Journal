@@ -1,6 +1,5 @@
 function mapTags(tags:string[],entryTags:{name:string}[]){
     
-    //console.log(tags);
 
     entryTags.forEach((tag)=>{
         if(!tags.includes(tag.name)){
@@ -8,7 +7,6 @@ function mapTags(tags:string[],entryTags:{name:string}[]){
         }
     })
 
-    //console.log(tags);
     return tags
 }
 
