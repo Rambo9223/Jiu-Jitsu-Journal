@@ -1,4 +1,4 @@
-import {  Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { useForm,SubmitHandler, useFieldArray  } from "react-hook-form";
 import { LogFormValues } from "../types/formTypes";
 import resolver_LF from "../utils/resolver_LF";
@@ -105,7 +105,7 @@ export default function NewLogForm({defaultValues,test}:Props
             {page===8?<PageEight errors={errors} register={register} sparringArray={sparringArray}/>:null}
 
         </Form>
-        {(page<8)?<ContinueNewLog handler={()=>{//implemett when errors continue is not an option
+        {(page<8)?<ContinueNewLog handler={()=>{//implement when errors continue is not an option
           handlePageChange({nextPage:true,setPage:setPage,page:page})}}/>:null}
         {page===9?<>{res}</>:null}
     </>)

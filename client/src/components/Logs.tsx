@@ -1,7 +1,7 @@
 import UserIcon from "./UserIcon"
 import { useState,useEffect } from "react";
 import { newLogMockValues } from "./utils/mock_values";
-import { Search } from "react-bootstrap-icons";
+import { Search , X } from "react-bootstrap-icons";
 import LogList from "./LogList";
 import { LogFormValues } from "./types/formTypes";
 import { mapTags } from "./utils/mapTags";
@@ -14,12 +14,13 @@ export default function Logs(){
     const [logs,setLogs] = useState<entries>(null);
     const [allLogs,setAllLogs] = useState<entries>(null);
     const [tags,setTags] = useState<string[]>([]);
-    const [index,setIndex] = useState<number>(8);
+    const [indexs,setIndexs] = useState<number[]>([0,8]);
+    const [searchText,setSearchText] = useState<string>("")
 
     function showMore(){
-        if(index+4 < tags.length){
-            setIndex(index+4);
-        }else{setIndex(tags.length)}
+        if(indexs[1]+4 < tags.length){
+            setIndexs([indexs[0]+4,indexs[1]+4]);
+        }else{setIndexs([tags.length-4,tags.length])}
     }
 
     function filterLogs(query:string){  
@@ -38,14 +39,12 @@ export default function Logs(){
         if(allLogs===null){
         setAllLogs(newLogMockValues);
         setLogs(newLogMockValues);
-        //setTags(["wrestling"]);
         newLogMockValues.forEach((log)=>{
         let entryTags = log.tags;
         setTags(mapTags(tags,entryTags))
-        //console.log(tags);
         })
     }
-    },[logs,tags])
+    },[logs,tags,allLogs])
 
     return (<div >
     
@@ -54,11 +53,15 @@ export default function Logs(){
         </header>
 
         <div>
-            <Search/><input type="text" placeholder="Search Tags"></input>
+            <Search onClick={()=>{setLogs(allLogs);filterLogs(searchText)}}/>
+            <input value={searchText} onChange={(e)=>{setSearchText(e.target.value);}} type="text" placeholder="search tags"></input>
+            <X  onClick={()=>{
+            setSearchText("");
+            setLogs(allLogs)}}/>
             <div className="entry-tags">
-            {tags.slice(0,index).map((tag)=>{
-                return <div onClick={()=>{setLogs(allLogs);filterLogs(tag)}} className="tag" key={tag}>{tag}</div>
-            })}{index!==tags.length?<div className="tag" onClick={showMore}>more...</div>:null}
+            {tags.slice(indexs[0],indexs[1]).map((tag)=>{
+                return <div onClick={()=>{setLogs(allLogs);filterLogs(tag);setSearchText(tag)}} className="tag" key={tag}>{tag}</div>
+            })}{indexs[1]!==tags.length?<div className="tag" onClick={showMore}>more...</div>:<div className="tag" onClick={()=>{setIndexs([0,8])}}>...back</div>}
             </div>
         </div>
 
