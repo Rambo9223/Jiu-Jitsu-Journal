@@ -20,7 +20,8 @@ export default function EntryModal({log,title}:Props){
   
 
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+  const [editing,setEditing] = useState(false);
+  const handleClose = () => {setShow(false);setEditing(false)}
   const handleShow = () => setShow(true);
 
   return (
@@ -40,9 +41,10 @@ export default function EntryModal({log,title}:Props){
           }}>Log</Modal.Title>
         </Modal.Header>
         <Modal.Body style={{"textAlign":"center","margin":"0 auto"}}>
-          <EditLogForm log={log}/>
+          <EditLogForm editing={editing} setEditing={setEditing} log={log}/>
         </Modal.Body>
         <Modal.Footer style={{"position":"sticky"}}>
+          {(editing===false)?<Button variant='warning' onClick={()=>{setEditing(true)}}>Edit</Button>:null}
           <Button variant='danger' /*add onclick delete */ >Delete</Button>
           <Button variant="primary" onClick={handleClose}>
             Close
