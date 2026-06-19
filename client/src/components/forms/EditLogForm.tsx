@@ -7,11 +7,12 @@ import PageTwo from "./new-log-form/PageTwo";
 import EditLog2 from "./edit-log-form/EditLog2";
 import EditLog3 from "./edit-log-form/EditLog3";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import Entry from "../Entry";
 
 const resolver = resolver_LF;
 
 type Props ={
-    log:Object
+    log:LogFormValues
     editing:boolean,
     setEditing:Dispatch<SetStateAction<boolean>>
 }
@@ -46,6 +47,8 @@ export default function EditLogForm({editing,setEditing,log}:Props){
       const onSubmit:SubmitHandler<LogFormValues>=(data) => {
         // backend call to edit entry
         console.log(data);
+        // on success
+        setEditing(false);
         const body = <h2>Your Log has been updated succesfully.<JournalBookmarkFill/></h2>
         //reset()
       
@@ -74,7 +77,7 @@ export default function EditLogForm({editing,setEditing,log}:Props){
     {edited===true?<Button variant="warning" type="submit"/* */>Save Changes <FloppyFill/></Button>:null}
     </Form>
     :
-    <div>A nice version of the entry not in the style of a form</div>
+    <Entry entry={log}  />
     }
     </>)
 

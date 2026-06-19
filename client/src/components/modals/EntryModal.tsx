@@ -7,11 +7,10 @@ import EditLogForm from '../forms/EditLogForm';
 
 type Props = {
     log : LogFormValues,
-    title: string
 }
 
 
-export default function EntryModal({log,title}:Props){
+export default function EntryModal({log}:Props){
 
     // a simple function to display a modal component when user clicks a button 
 
@@ -38,7 +37,7 @@ export default function EntryModal({log,title}:Props){
         <Modal.Header closeButton>
           <Modal.Title style={{"textAlign":"center","margin":"0 auto",
           "paddingLeft":"75px"
-          }}>Log</Modal.Title>
+          }}>Training Log</Modal.Title>
         </Modal.Header>
         <Modal.Body style={{"textAlign":"center","margin":"0 auto"}}>
           <EditLogForm editing={editing} setEditing={setEditing} log={log}/>

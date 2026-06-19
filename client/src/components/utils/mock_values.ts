@@ -120,5 +120,18 @@ const newLogMockValues = [{
 }
 ];
 
+const mockUser = {
+    name:"Callum",
+    email:"CORD@gmail.com",
+    password:"coordinate91",
+    belt:"white",
+    settings:{
+        appearance:"blue",
+        reminders:false,
+        notifications:"all"
+    }    
 
-export {newLogMockValues}
+}
+
+
+export {newLogMockValues,mockUser}

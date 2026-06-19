@@ -38,7 +38,7 @@ export default function LogList({logs}:Props){
                     <div className="entry-tags">{log.tags.slice(0,3).map((tag)=>{
                     return <div className="tag" key={tag.name}>{tag.name}</div>})}</div>
                 </div>
-                <EntryModal log={log} title={log.overview}/>
+                <EntryModal log={log}/>
                 
                 </div>
         })}

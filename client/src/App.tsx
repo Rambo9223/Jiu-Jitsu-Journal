@@ -6,20 +6,26 @@ import Media from "./components/Media";
 import Settings from "./components/Settings";
 import NavBar from './components/NavBar';
 //import NewLog from './components/forms/NewLog';
-import './App.css';
+// @ts-ignore: CSS module import declaration unavailable in this setup
+import "./App.css";
+// @ts-ignore: CSS module import declaration unavailable in this setup
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 import NewNote from './components/forms/NewNoteForm';
 import NewMediaForm from './components/forms/NewMediaForm';
 import NewLogForm from './components/forms/NewLogForm';
 import { mediaDefaults, newLogDefaults, noteDefaults } from './components/utils/formDefaults';
+import { mockUser } from "./components/utils/mock_values"
+import { UserType } from './components/types/userType';
+
+//"@total-typescript/ts-reset": "^0.6.1"
 
 type User = {
   sessionId:string,
-  name:string
+  user:UserType
 }
 
-type Props = User
+//type Props = User
 
 
 function App() {
@@ -42,7 +48,7 @@ function App() {
       <Route path='/' element={<Home/>}/>
       <Route path='logs' element={<Logs/>}/>
       <Route path='media' element={<Media/>}/>
-      <Route path='settings' element={<Settings/>}/>
+      <Route path='settings' element={<Settings user={mockUser}/>}/>
       <Route path='new-log' element={<NewLogForm defaultValues={newLogDefaults} />}/>
       <Route path='new-note' element={<NewNote defaultValues={noteDefaults}/>}/>
       <Route path='new-media' element={<NewMediaForm defaultValues={mediaDefaults}/>}/>

@@ -47,6 +47,7 @@
     ]
   },
   "devDependencies": {
-    "@total-typescript/ts-reset": "^0.6.1"
+    "typescript": "npm:@typescript/typescript6@^6.0.0",
+    "typescript-7": "npm:typescript@rc"
   }
 }
