@@ -124,11 +124,11 @@ const mockUser = {
     name:"Callum",
     email:"CORD@gmail.com",
     password:"coordinate91",
-    belt:"white",
+    belt:"blue",
     settings:{
         appearance:"blue",
         reminders:false,
-        notifications:"all"
+        notifications:"granted"
     }    
 
 }

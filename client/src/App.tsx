@@ -52,6 +52,7 @@ function App() {
       <Route path='new-log' element={<NewLogForm defaultValues={newLogDefaults} />}/>
       <Route path='new-note' element={<NewNote defaultValues={noteDefaults}/>}/>
       <Route path='new-media' element={<NewMediaForm defaultValues={mediaDefaults}/>}/>
+      
       </Routes>
       <NavBar/>
        </>}
