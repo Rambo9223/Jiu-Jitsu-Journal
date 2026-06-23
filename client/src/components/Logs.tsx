@@ -46,7 +46,7 @@ export default function Logs(){
     }
     },[logs,tags,allLogs])
 
-    return (<div >
+    return (<div className="">
     
         <header className="page-headers">
             <h3>Jiu-Jitsu Logs</h3> <UserIcon/>

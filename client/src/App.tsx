@@ -17,6 +17,9 @@ import NewLogForm from './components/forms/NewLogForm';
 import { mediaDefaults, newLogDefaults, noteDefaults } from './components/utils/formDefaults';
 import { mockUser } from "./components/utils/mock_values"
 import { UserType } from './components/types/userType';
+import Support from './components/Support';
+import ImportExport from './components/ImportExport';
+import AdvancedSettings from './components/AdvancedSettings';
 
 //"@total-typescript/ts-reset": "^0.6.1"
 
@@ -33,7 +36,7 @@ function App() {
   //setUser({sessionId:"test",name:"Scott"})
   return (
     <div className="App" style={{/*Style will be dependant on users choice */
-      "background": "linear-gradient(180deg, rgba(156, 164, 255, 1) 0%, rgba(237, 237, 255, 1) 35%, rgba(255, 255, 255, 1) 100%)"}}>
+      "background": mockUser.settings.appearance}}>
       {/* I think the logic here in the latter stages should be 
       two pages, the login page which load automatically unless a login object is 
       saved in local storage, 
@@ -52,10 +55,12 @@ function App() {
       <Route path='new-log' element={<NewLogForm defaultValues={newLogDefaults} />}/>
       <Route path='new-note' element={<NewNote defaultValues={noteDefaults}/>}/>
       <Route path='new-media' element={<NewMediaForm defaultValues={mediaDefaults}/>}/>
-      <Route path='advanced-settings'/>
-      
-      <Route path='support'/>
+      <Route path='import-export' element={<ImportExport/>}/>
+      <Route path='advanced-settings'
+      element={<AdvancedSettings/>}/>
+      <Route path='support' element={<Support/>}/>
 
+      {/*Add a 404 page */}
       </Routes>
       <NavBar/>
        </>}

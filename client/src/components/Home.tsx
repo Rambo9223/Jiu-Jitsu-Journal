@@ -3,6 +3,7 @@ import Calendar from "./WeekView"
 import RecentEntries from "./RecentEntries";
 import { Outlet,NavLink } from "react-router";
 import { logButton,mediaButton,noteButton } from "../assets/images";
+// @ts-ignore: CSS module import declaration unavailable in this setup
 import "./Home.css";
 
 

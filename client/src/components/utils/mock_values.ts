@@ -126,7 +126,7 @@ const mockUser = {
     password:"coordinate91",
     belt:"blue",
     settings:{
-        appearance:"blue",
+        appearance:"linear-gradient(180deg, rgba(156, 164, 255, 1) 0%, rgba(237, 237, 255, 1) 35%, rgba(255, 255, 255, 1) 100%)",
         reminders:false,
         notifications:"granted"
     }    
